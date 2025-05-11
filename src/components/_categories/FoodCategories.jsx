@@ -1,53 +1,8 @@
 import React from 'react';
+import categories from '../../_constants/constants';
 
 const FoodCategories = () => {
-  const categories = [
-    {
-      name: "Breakfast",
-      image: "https://images.unsplash.com/photo-1464306208223-e0b4495a5553?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8MXx8bWluaW1hbGlzdCUyMGZvb2QlMjBjYXRlZ29yeSUyMGljb25zfGVufDB8fHx8MTc0NjYzNjk5OHww&ixlib=rb-4.1.0&q=80&w=1080"
-    },
-    {
-      name: "Lunch",
-      image: "https://images.unsplash.com/photo-1447078806655-40579c2520d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8Mnx8bWluaW1hbGlzdCUyMGZvb2QlMjBjYXRlZ29yeSUyMGljb25zfGVufDB8fHx8MTc0NjYzNjk5OHww&ixlib=rb-4.1.0&q=80&w=1080"
-    },
-    {
-      name: "Desserts",
-      image: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8M3x8bWluaW1hbGlzdCUyMGZvb2QlMjBjYXRlZ29yeSUyMGljb25zfGVufDB8fHx8MTc0NjYzNjk5OHww&ixlib=rb-4.1.0&q=80&w=1080"
-    },
-    {
-      name: "Bakery",
-      image: "https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8NHx8bWluaW1hbGlzdCUyMGZvb2QlMjBjYXRlZ29yeSUyMGljb25zfGVufDB8fHx8MTc0NjYzNjk5OHww&ixlib=rb-4.1.0&q=80&w=1080"
-    },
-    {
-      name: "Fruits",
-      image: "https://images.unsplash.com/photo-1487376480913-24046456a727?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8NXx8bWluaW1hbGlzdCUyMGZvb2QlMjBjYXRlZ29yeSUyMGljb25zfGVufDB8fHx8MTc0NjYzNjk5OHww&ixlib=rb-4.1.0&q=80&w=1080"
-    },
-    {
-      name: "Drinks",
-      image: "https://images.unsplash.com/photo-1543362906-acfc16c67564?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8Nnx8bWluaW1hbGlzdCUyMGZvb2QlMjBjYXRlZ29yeSUyMGljb25zfGVufDB8fHx8MTc0NjYzNjk5OHww&ixlib=rb-4.1.0&q=80&w=1080"
-    },
-    {
-      name: "Cakes",
-      image: "https://images.unsplash.com/photo-1487790343276-2fe56a7d9439?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8N3x8bWluaW1hbGlzdCUyMGZvb2QlMjBjYXRlZ29yeSUyMGljb25zfGVufDB8fHx8MTc0NjYzNjk5OHww&ixlib=rb-4.1.0&q=80&w=1080"
-    },
-    {
-      name: "Berries",
-      image: "https://images.unsplash.com/photo-1469547371150-47620ed0c5ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8OHx8bWluaW1hbGlzdCUyMGZvb2QlMjBjYXRlZ29yeSUyMGljb25zfGVufDB8fHx8MTc0NjYzNjk5OHww&ixlib=rb-4.1.0&q=80&w=1080"
-    },
-    {
-      name: "Baking",
-      image: "https://images.unsplash.com/photo-1495480137269-ff29bd0a695c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8OXx8bWluaW1hbGlzdCUyMGZvb2QlMjBjYXRlZ29yeSUyMGljb25zfGVufDB8fHx8MTc0NjYzNjk5OHww&ixlib=rb-4.1.0&q=80&w=1080"
-    },
-    {
-      name: "Organic",
-      image: "https://images.unsplash.com/photo-1524222717473-730000096953?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8MTB8fG1pbmltYWxpc3QlMjBmb29kJTIwY2F0ZWdvcnklMjBpY29uc3xlbnwwfHx8fDE3NDY2MzY5OTh8MA&ixlib=rb-4.1.0&q=80&w=1080"
-    },
-    {
-      name: "Dinner",
-      image: "https://images.unsplash.com/photo-1524222717473-730000096953?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8MTB8fG1pbmltYWxpc3QlMjBmb29kJTIwY2F0ZWdvcnklMjBpY29uc3xlbnwwfHx8fDE3NDY2MzY5OTh8MA&ixlib=rb-4.1.0&q=80&w=1080"
-    }
-  ];
-
+ 
   return (
     <section id="categories" className="py-16 bg-neutral-900">
       <div className="container mx-auto px-4">

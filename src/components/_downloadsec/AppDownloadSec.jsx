@@ -1,11 +1,14 @@
 import React from "react";
+import { IoLogoGooglePlaystore } from "react-icons/io5";
+import { TfiMicrosoftAlt } from "react-icons/tfi";
+
 
 const DownloadAppSection = () => {
   return (
     <section id="download-app" className="py-16 bg-neutral-900 text-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center">
-          {/* Left Side */}
+        
           <div className="lg:w-1/2 mb-10 lg:mb-0 lg:pr-12">
             <h2 className="text-4xl font-bold mb-4">Get The App</h2>
             <p className="text-neutral-300 mb-8 text-lg">
@@ -13,10 +16,10 @@ const DownloadAppSection = () => {
             </p>
 
             <div className="flex mb-6">
-              <button className="bg-white text-black px-6 py-3 rounded-lg mr-4 font-medium">
+              <button className="bg-white text-black px-6 py-3 rounded-lg mr-4 font-medium hover:bg-gray-100 hover:scale-105 transition-all duration-300">
                 Email
               </button>
-              <button className="border border-white text-white px-6 py-3 rounded-lg font-medium">
+              <button className="border border-white text-white px-6 py-3 rounded-lg font-medium  hover:scale-105 transition-all duration-300">
                 Phone
               </button>
             </div>
@@ -34,18 +37,11 @@ const DownloadAppSection = () => {
             <div className="flex items-center">
               <p className="text-neutral-400 mr-4">Download App from</p>
               <a href="#" className="mr-4">
-                <img
-                  src="https://dms.mydukaan.io/original/webp/media/4b71a76c-6219-48e7-afa5-d0ea16187e96.png"
-                  alt="App Store"
-                  className="h-10"
-                />
+                <IoLogoGooglePlaystore className="h-20 w-7" />
+                
               </a>
               <a href="#">
-                <img
-                  src="https://dms.mydukaan.io/original/webp/media/4b71a76c-6219-48e7-afa5-d0ea16187e96.png"
-                  alt="Google Play"
-                  className="h-10"
-                />
+                <TfiMicrosoftAlt className="h-15 w-7" />
               </a>
             </div>
           </div>

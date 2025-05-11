@@ -1,47 +1,7 @@
 import React from 'react';
+import { restaurants } from '../../_constants/constants';
 
 const Restaurants = () => {
-  const restaurants = [
-    {
-      id: 1,
-      name: "The Rustic Table",
-      image: "https://images.unsplash.com/photo-1501127122-f385ca6ddd9d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8MXx8dXBzY2FsZSUyMHJlc3RhdXJhbnQlMjBpbnRlcmlvciUyMHdpdGglMjBhbWJpZW50JTIwbGlnaHRpbmd8ZW58MHx8fHwxNzQ2NjM3MDUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      rating: 4.8,
-      tags: ["Italian", "Fine Dining", "$$$$"],
-      deliveryTime: "25-35 min",
-      minOrder: "$25",
-      badge: {
-        text: "Premium",
-        color: "bg-orange-500"
-      }
-    },
-    {
-      id: 2,
-      name: "Green Garden",
-      image: "https://images.unsplash.com/photo-1514053026555-49ce8886ae41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8Mnx8dXBzY2FsZSUyMHJlc3RhdXJhbnQlMjBpbnRlcmlvciUyMHdpdGglMjBhbWJpZW50JTIwbGlnaHRpbmd8ZW58MHx8fHwxNzQ2NjM3MDUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      rating: 4.6,
-      tags: ["Vegetarian", "Healthy", "$$$"],
-      deliveryTime: "20-30 min",
-      minOrder: "$20",
-      badge: {
-        text: "Organic",
-        color: "bg-green-500"
-      }
-    },
-    {
-      id: 3,
-      name: "Fusion Bistro",
-      image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg",
-      rating: 4.5,
-      tags: ["Asian Fusion", "Contemporary", "$$$$"],
-      deliveryTime: "30-45 min",
-      minOrder: "$30",
-      badge: {
-        text: "New",
-        color: "bg-blue-500"
-      }
-    }
-  ];
 
   return (
     <section id="featured-restaurants" className="py-16 bg-neutral-900">

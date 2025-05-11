@@ -1,4 +1,5 @@
 import React from 'react';
+import { restaurantsgrid } from '../../_constants/constants';
 
 const RestaurantGrid = () => {
   const filters = [
@@ -11,36 +12,6 @@ const RestaurantGrid = () => {
     { label: "Highly Rated", active: false }
   ];
 
-  const restaurants = [
-    {
-      id: 1,
-      name: "Skyline Bistro",
-      image: "https://images.unsplash.com/photo-1483366774565-c783b9f70e2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8MXx8YXBwZXRpemluZyUyMHJlc3RhdXJhbnQlMjBzdG9yZWZyb250JTIwbW9kZXJufGVufDB8fHx8MTc0NjYzNzE3MHww&ixlib=rb-4.1.0&q=80&w=1080",
-      rating: 4.8,
-      deliveryTime: "20-30 min",
-      distance: "0.8 miles",
-      tags: ["Modern", "American", "$$$"],
-      minOrder: "$15",
-      badge: {
-        text: "Free Delivery",
-        color: "bg-green-500"
-      }
-    },
-    {
-      id: 2,
-      name: "Cozy Cafe",
-      image: "https://images.unsplash.com/photo-1415226581130-91cb7f52f078?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8Mnx8YXBwZXRpemluZyUyMHJlc3RhdXJhbnQlMjBzdG9yZWZyb250JTIwbW9kZXJufGVufDB8fHx8MTc0NjYzNzE3MHww&ixlib=rb-4.1.0&q=80&w=1080",
-      rating: 4.6,
-      deliveryTime: "15-25 min",
-      distance: "1.2 miles",
-      tags: ["Cafe", "Breakfast", "$$"],
-      minOrder: "$10",
-      badge: {
-        text: "Popular",
-        color: "bg-blue-500"
-      }
-    }
-  ];
 
   return (
     <section id="restaurant-grid" className="py-16 bg-gray-900">
@@ -105,7 +76,7 @@ const RestaurantGrid = () => {
         
         {/* Restaurant Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {restaurants.map((restaurant) => (
+          {restaurantsgrid.map((restaurant) => (
             <div 
               key={restaurant.id}
               className="bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-700 transition-all duration-300 hover:shadow-md group"

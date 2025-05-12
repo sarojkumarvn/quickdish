@@ -23,7 +23,11 @@ const HeroSection = () => {
             Order from your favorite restaurants and enjoy contactless delivery right to your doorstep.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-orange-500 text-white px-8 py-3 rounded-full hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center">
+            <button
+            onClick={() => {
+              
+            }}
+            className="bg-orange-500 text-white px-8 py-3 rounded-full hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center">
               Find Food
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />

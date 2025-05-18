@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const NavBar = ({ headerNav = [] }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -10,25 +10,29 @@ const NavBar = ({ headerNav = [] }) => {
   return (
     <div className=" mx-auto px-4 py-4 bg-neutral-700 w-full">
       <div className="flex justify-between items-center mx-20">
-     
         <div className="flex items-center">
-          <a href="#" className="text-2xl font-bold text-orange-400" target="_self">
+          <a
+            href="#"
+            className="text-2xl font-bold text-orange-400"
+            target="_self"
+          >
             QuickDish
           </a>
         </div>
 
         <nav className="hidden md:flex items-center space-x-6">
+          
           {headerNav.map((item, index) => (
             <a
               key={index}
-              href={item.href || '#'}
+              href={item.href || "#"}
               className="font-DM Sans text-neutral-300 hover:text-orange-400 transition-colors duration-300"
               target="_self"
             >
               {item.label}
             </a>
           ))}
-          
+
           <div className="relative">
             <input
               type="text"
@@ -48,7 +52,7 @@ const NavBar = ({ headerNav = [] }) => {
               />
             </svg>
           </div>
-          
+
           <button className="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-colors duration-300">
             Order Now
           </button>
@@ -76,22 +80,28 @@ const NavBar = ({ headerNav = [] }) => {
             />
           </svg>
         </button>
+        
       </div>
 
       {/* Mobile Navigation Menu */}
-      <div id="mobile-menu" className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} mt-4 pb-2`}>
+      <div
+        id="mobile-menu"
+        className={`md:hidden ${
+          isMobileMenuOpen ? "block" : "hidden"
+        } mt-4 pb-2`}
+      >
         <nav className="flex flex-col space-y-3">
           {headerNav.map((item, index) => (
             <a
               key={index}
-              href={item.href || '#'}
+              href={item.href || "#"}
               className="font-DM Sans text-neutral-300 hover:text-orange-400 transition-colors duration-300"
               target="_self"
             >
               {item.label}
             </a>
           ))}
-          
+
           <div className="relative">
             <input
               type="text"
@@ -111,10 +121,11 @@ const NavBar = ({ headerNav = [] }) => {
               />
             </svg>
           </div>
-          
+
           <button className="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-colors duration-300 w-full mt-2">
             Order Now
           </button>
+        
         </nav>
       </div>
     </div>

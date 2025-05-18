@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { restaurantsgrid } from '../../_constants/constants';
 
 const RestaurantGrid = () => {
@@ -12,17 +12,26 @@ const RestaurantGrid = () => {
     { label: "Highly Rated", active: false }
   ];
 
+  const [visibleRestaurants, setVisibleRestaurants] = useState(6);
+  const allRestaurants = restaurantsgrid.flat();
+
+  const handleLoadMore = () => {
+    setVisibleRestaurants((prev) => Math.min(prev + 3, allRestaurants.length));
+  };
 
   return (
     <section id="restaurant-grid" className="py-16 bg-gray-900">
       <div className="container mx-auto px-4">
+        {/* Header & Filters */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Restaurants</h2>
             <p className="text-gray-400">Discover restaurants that deliver to your doorstep</p>
           </div>
-          
+
+          {/* Location & Sort UI */}
           <div className="mt-4 md:mt-0 flex items-center">
+            {/* Location */}
             <div className="relative mr-4">
               <div className="flex items-center bg-gray-800 border border-gray-700 rounded-full py-2 px-4 text-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -35,7 +44,8 @@ const RestaurantGrid = () => {
                 </svg>
               </div>
             </div>
-            
+
+            {/* Sort Dropdown */}
             <div className="relative mr-4">
               <select className="appearance-none bg-gray-800 border border-gray-700 rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-300">
                 <option>Sort by: Recommended</option>
@@ -49,7 +59,8 @@ const RestaurantGrid = () => {
                 </svg>
               </div>
             </div>
-            
+
+            {/* Filter Button */}
             <button className="bg-gray-800 p-2 rounded-full border border-gray-700 hover:bg-gray-700 transition-colors duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
@@ -57,15 +68,15 @@ const RestaurantGrid = () => {
             </button>
           </div>
         </div>
-        
+
         {/* Filter Pills */}
         <div className="flex overflow-x-auto pb-4 -mx-4 px-4 space-x-3 mb-8 scrollbar-hide">
           {filters.map((filter, index) => (
-            <button 
+            <button
               key={index}
               className={`px-4 py-2 rounded-full transition-colors duration-300 whitespace-nowrap ${
-                filter.active 
-                  ? 'bg-orange-500 text-white hover:bg-orange-600' 
+                filter.active
+                  ? 'bg-orange-500 text-white hover:bg-orange-600'
                   : 'bg-gray-800 text-gray-300 border border-gray-700 hover:bg-gray-700'
               }`}
             >
@@ -73,19 +84,19 @@ const RestaurantGrid = () => {
             </button>
           ))}
         </div>
-        
+
         {/* Restaurant Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {restaurantsgrid.map((restaurant) => (
-            <div 
+          {allRestaurants.slice(0, visibleRestaurants).map((restaurant) => (
+            <div
               key={restaurant.id}
               className="bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-700 transition-all duration-300 hover:shadow-md group"
             >
               <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={restaurant.image} 
-                  alt={restaurant.name} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                <img
+                  src={restaurant.image}
+                  alt={restaurant.name}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                 />
                 <button className="absolute top-4 right-4 bg-gray-800 rounded-full p-2 shadow-sm opacity-90 hover:opacity-100 transition-opacity duration-300">
@@ -99,7 +110,7 @@ const RestaurantGrid = () => {
                   </div>
                 )}
               </div>
-              
+
               <div className="p-5">
                 <div className="flex justify-between items-start mb-2">
                   <h3 className="text-xl font-semibold text-white">{restaurant.name}</h3>
@@ -110,7 +121,7 @@ const RestaurantGrid = () => {
                     <span className="text-sm font-medium text-green-300">{restaurant.rating}</span>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center text-gray-400 text-sm mb-3">
                   <span className="flex items-center mr-4">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -126,7 +137,7 @@ const RestaurantGrid = () => {
                     {restaurant.distance}
                   </span>
                 </div>
-                
+
                 <div className="flex flex-wrap gap-2 mb-4">
                   {restaurant.tags.map((tag, index) => (
                     <span key={index} className="bg-gray-700 text-gray-300 text-xs px-3 py-1 rounded-full">
@@ -134,7 +145,7 @@ const RestaurantGrid = () => {
                     </span>
                   ))}
                 </div>
-                
+
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-400">Min. order: {restaurant.minOrder}</span>
                   <button className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-300 text-sm">
@@ -144,6 +155,25 @@ const RestaurantGrid = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Load More Button or End Message */}
+        <div className="flex justify-center mt-8">
+          {visibleRestaurants < allRestaurants.length ? (
+            <button
+              className="bg-orange-500 text-white px-6 py-3 rounded-full hover:bg-orange-600 transition-colors duration-300"
+              onClick={handleLoadMore}
+            >
+              Load More
+            </button>
+          ) : (
+            <button
+              className="bg-gray-700 text-white px-6 py-3 rounded-full cursor-default"
+              disabled
+            >
+              No more restaurants to load
+            </button>
+          )}
         </div>
       </div>
     </section>
